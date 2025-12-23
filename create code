@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+int main() {
+    int score = 0;
+    char answer;
+    int i;
+
+    char questions[10][100] = {
+        "Capital of India?",
+        "2 + 2 = ?",
+        "Founder of C language?",
+        "Which symbol ends a statement in C?",
+        "Header file for printf?",
+        "5 * 5 = ?",
+        "Which is a loop in C?",
+        "10 / 2 = ?",
+        "Output function in C?",
+        "C is a programming language?"
+    };
+
+    char options[10][4][50] = {
+        {"A) Delhi", "B) Mumbai", "C) Chennai", "D) Kolkata"},
+        {"A) 3", "B) 4", "C) 5", "D) 6"},
+        {"A) Dennis Ritchie", "B) James Gosling", "C) Guido van Rossum", "D) Elon Musk"},
+        {"A) :", "B) ;", "C) ,", "D) ."},
+        {"A) math.h", "B) stdlib.h", "C) stdio.h", "D) string.h"},
+        {"A) 10", "B) 15", "C) 20", "D) 25"},
+        {"A) if", "B) for", "C) switch", "D) break"},
+        {"A) 2", "B) 3", "C) 4", "D) 5"},
+        {"A) scanf", "B) input", "C) printf", "D) display"},
+        {"A) Yes", "B) No", "C) Maybe", "D) None"}
+    };
+
+    char correctAnswers[10] = {'A','B','A','B','C','D','B','A','C','A'};
+
+    printf("===== MINI QUIZ GAME =====\n");
+
+    for(i = 0; i < 10; i++) {
+        printf("\nQ%d. %s\n", i+1, questions[i]);
+
+        printf("%s\n", options[i][0]);
+        printf("%s\n", options[i][1]);
+        printf("%s\n", options[i][2]);
+        printf("%s\n", options[i][3]);
+
+        printf("Enter your answer: ");
+        scanf(" %c", &answer);
+
+        if(answer == correctAnswers[i] ||
+           answer == correctAnswers[i] + 32) {
+            score++;
+        }
+    }
+
+    printf("\n===== RESULT =====\n");
+    printf("Your Score: %d / 10\n", score);
+
+    if(score >= 8)
+        printf("Excellent Performance!\n");
+    else if(score >= 5)
+        printf("Good Job!\n");
+    else
+        printf("Needs Improvement.\n");
+
+    return 0;
+}
